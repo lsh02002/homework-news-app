@@ -1,15 +1,14 @@
 import { useContext, useState } from "react";
 import { NewsContext } from "../Context/NewsContext";
 import { NewsContent } from "../Components/NewsContent";
-import Calendar from "react-calendar";
-//import "react-calendar/dist/Calendar.css";
+
 import "./News.css";
 
 const News = () => {
   const data = useContext(NewsContext);
   const [searchInput, setSearchInput] = useState("");
   const [canSearch, setCanSearch] = useState(false);
-  const [selectedDate, onChange] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const changeHandler = (event) => {
     setSearchInput(event.target.value);
@@ -36,7 +35,13 @@ const News = () => {
         <button onClick={clickHandler} onBlur={blurHandler}>
           검색 하기
         </button>
-        <Calendar onChange={onChange} value={selectedDate} />
+        <input
+          type="date"
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date.getTime())}
+          value={selectedDate.getTime()}
+          disabled={true}
+        />
         <h3>
           {new Date(selectedDate).toLocaleDateString("ko", {
             year: "numeric",
