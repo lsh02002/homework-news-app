@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { NewsContext } from "../Context/NewsContext";
 import { NewsContent } from "../Components/NewsContent";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 import "./News.css";
 
 const News = () => {
@@ -36,9 +35,12 @@ const News = () => {
         <button onClick={clickHandler} onBlur={blurHandler}>
           검색 하기
         </button>
-        <DatePicker
+        <input
+          type="date"
           selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
+          onChange={(date) => setSelectedDate(date.getTime())}
+          value={selectedDate.getTime()}
+          disabled={true}
         />
         <h3>
           {new Date(selectedDate).toLocaleDateString("ko", {
