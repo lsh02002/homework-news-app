@@ -35,13 +35,7 @@ const News = () => {
         <button onClick={clickHandler} onBlur={blurHandler}>
           검색 하기
         </button>
-        <input
-          type="date"
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date.getTime())}
-          value={selectedDate.getTime()}
-          disabled={true}
-        />
+        <input type="date" disabled={true} />
         <h3>
           {new Date(selectedDate).toLocaleDateString("ko", {
             year: "numeric",
