@@ -9,7 +9,8 @@ export const NewsContextProvider = (props) => {
   useEffect(() => {
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=apple&from=2023-11-24&to=2023-11-24&sortBy=popularity&apiKey=139a835220df4f17ab3a3ffa6713ff8d`
+        `https://newsapi.org/v2/everything?q=apple&from=2023-11-24&to=2023-11-24&sortBy=popularity&apiKey=139a835220df4f17ab3a3ffa6713ff8d`,
+        { withCredentials: true }
       )
       .then((response) => setData(response.data))
       .catch((error) => console.log(error));
