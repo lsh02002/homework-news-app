@@ -8,7 +8,7 @@ const News = () => {
   const data = useContext(NewsContext);
   const [searchInput, setSearchInput] = useState("");
   const [canSearch, setCanSearch] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  //const [selectedDate, setSelectedDate] = useState(new Date());
 
   const changeHandler = (event) => {
     setSearchInput(event.target.value);
@@ -37,7 +37,7 @@ const News = () => {
         </button>
         <input type="date" disabled={true} />
         <h3>
-          {new Date(selectedDate).toLocaleDateString("ko", {
+          {new Date().toLocaleDateString("ko", {
             year: "numeric",
             month: "short",
             day: "numeric",
@@ -60,7 +60,7 @@ const News = () => {
                   .filter(
                     (news) =>
                       new Date(news.publishedAt).getTime() >
-                      new Date(selectedDate).getTime() - 24 * 60 * 60 * 1000
+                      new Date().getTime() - 24 * 60 * 60 * 1000
                   )
                   .map((news, index) => (
                     <NewsContent
@@ -79,7 +79,7 @@ const News = () => {
                   .filter(
                     (news) =>
                       new Date(news.publishedAt).getTime() >
-                      new Date(selectedDate).getTime() - 24 * 60 * 60 * 1000
+                      new Date().getTime() - 24 * 60 * 60 * 1000
                   )
                   .map((news, index) => (
                     <NewsContent
