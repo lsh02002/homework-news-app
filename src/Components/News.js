@@ -57,11 +57,13 @@ const News = () => {
                       .toLowerCase()
                       .includes(searchInput.toLowerCase());
                   })
+                  /*                  
                   .filter(
                     (news) =>
                       new Date(news.publishedAt).getTime() >
                       new Date().getTime() - 24 * 60 * 60 * 1000
                   )
+*/
                   .map((news, index) => (
                     <NewsContent
                       count={index + 1}
@@ -76,11 +78,12 @@ const News = () => {
           <div>
             {data
               ? data.articles
-                  .filter(
+                  /*                  .filter(
                     (news) =>
                       new Date(news.publishedAt).getTime() >
                       new Date().getTime() - 24 * 60 * 60 * 1000
                   )
+*/
                   .map((news, index) => (
                     <NewsContent
                       count={index + 1}
